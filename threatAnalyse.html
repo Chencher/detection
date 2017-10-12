@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>威胁分析</title><meta name="description" content=""><meta name="keywords" content=""><link rel="stylesheet" href="styles/datepicker.min.css"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css"><link href="styles/main.min.css" rel="stylesheet"></head><body class="threat-analyse" id="threatAnalyse"><div class="time-bar"><div class="time-container"><div class="time-list"><span>最近一周</span><ul name="time"><li value="30min" name="hideLi">最近30分钟</li><li value="1hour" name="hideLi">最近一小时</li><li value="1day" name="hideLi">最近一天</li><li value="1week">最近一周</li><li value="1mounth" name="hideLi">最近一个月</li><li value="1season">最近一季度</li><li value="1year">最近一年</li></ul><i class="arrow"></i></div><div class="time-date"><input type="text" value="" id="date1" placeholder="起始日期"> — <input type="text" value="" id="date2" placeholder="结束日期"></div></div></div><div id="analyse-content"><div class="section part1"><header class="header"><h1 class="h1">威胁分析</h1></header><div class="threat-analyse-trend-1"><h1>威胁趋势</h1><div class="left-bar"><div id="analyse-bar1"></div></div><div class="right-line"><div id="analyse-line1"></div></div></div></div><div class="section part2"><div class="threat-analyse-from"><div class="left"><div class="analyse-pie"><h1>威胁来源</h1><div id="analyse-pie1"></div></div><div class="analyse-pie"><h1>病毒来源</h1><div id="analyse-pie2"></div></div></div><div class="right"><div class="threat-type"><h1>威胁类型统计</h1><div id="analyse-bar2"></div></div><div class="threat-type"><h1>威胁子类型统计</h1><div id="analyse-bar3"></div></div><div class="threat-type"><h1>处置结果</h1><div id="analyse-bar4"></div></div></div></div></div><div class="section part3"><div class="threat-analyse-top"><div class="top"><h1>病毒排名TOP5</h1><div id="analyse-ball1"></div><div class="name"><span>蠕虫病毒</span> <span>Melissa</span> <span>Klez</span> <span>蓝宝石病毒</span> <span>震荡波病毒</span></div></div><div class="bottom"><div class="bottom-left"><h1>威胁来源TOP5</h1><div id="analyse-bar5"></div></div><div class="bottom-right"><h1>受攻击主机TOP5</h1><div id="analyse-bar6"></div></div></div></div></div></div><div class="loading"><div class="bg"></div><div class="circle"></div><div class="logo"></div></div><script src="scripts/jquery.min.js"></script><script src="scripts/jquery.fullPage.min.js"></script><script src="scripts/echarts.min.js"></script><script src="scripts/echarts-liquidfill.min.js"></script><script src="scripts/datepicker.min.js"></script><script src="scripts/main.min.js"></script><script>$(function(){
+			$('#analyse-content').fullpage({
+				afterLoad: function(anchorLink, index){
+					if(index == 1){
+						$('.time-bar').animate({
+							marginTop: '110px'
+						}, 500);
+						$('.time-date, li[name=hideLi]').hide();
+					}else{
+						$('.time-bar').animate({
+							marginTop: '0px'
+						}, 500);
+						$('.time-date, li[name=hideLi]').show();
+					}
+					
+				},
+			});
+		render.threatAnalyseFn();
+    	})</script></body></html>
